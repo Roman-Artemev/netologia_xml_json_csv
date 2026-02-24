@@ -39,7 +39,7 @@ public class Main {
 
     }
 
-    private static String readString(String fileName) {
+    static String readString(String fileName) {
         StringBuilder content = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
@@ -55,7 +55,7 @@ public class Main {
     /**
      * Парсит JSON-строку в список объектов Employee
      */
-    private static List<Employee> jsonToList(String json) {
+    static List<Employee> jsonToList(String json) {
         List<Employee> employees = new ArrayList<>();
 
         try {
@@ -80,7 +80,7 @@ public class Main {
         return employees;
     }
 
-    private static List<Employee> parseXML(String fileName) {
+    static List<Employee> parseXML(String fileName) {
         List<Employee> employees = new ArrayList<>();
 
         try {
@@ -123,7 +123,7 @@ public class Main {
         return employees;
     }
 
-    private static List<Employee> parseCSV(String[] columnMapping, String fileName) {
+    static List<Employee> parseCSV(String[] columnMapping, String fileName) {
         List<Employee> staff = null;
         try (CSVReader csvReader = new CSVReader(new FileReader(fileName))) {
             ColumnPositionMappingStrategy<Employee> strategy = new ColumnPositionMappingStrategy<>();
@@ -139,7 +139,7 @@ public class Main {
         return staff;
     }
 
-    private static String listToJson(List<Employee> list) {
+    static String listToJson(List<Employee> list) {
         GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();
 
